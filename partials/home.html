@@ -1,0 +1,16 @@
+<div ng-show="loading">Chargement ...</div>
+
+<div ng-hide="loading">
+	<div ng-repeat="post in posts" >
+
+		<h1>{{post.name}}</h1>
+
+		<p>{{post.content}}</p>
+
+		<p>
+			<a href="#/comments/{{post.id}}">{{ post.comments.length }} - Voir les commentaires</a>
+		</p>
+
+		<hr>
+	</div>
+</div>

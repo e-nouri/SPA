@@ -1,0 +1,30 @@
+<div ng-controller="commentsController">
+
+	<div ng-show="loading"> Chargement ...</div>
+
+	<div ng-hide="loading">
+		<p>
+			Search in the comments: <br />
+			
+			<input type="text" ng-model="query" /><br />
+
+			<select ng-model="order">
+				<option value="username">Order by name</option>
+				<option value="content">Order by content</option>
+			</select>
+		</p>
+		
+		
+		<h1>{{ title }}</h1>
+
+		<div ng-repeat="comment in comments | filter:{content:query} | orderBy: order">
+			<p>
+				<strong>{{comment.username}}</strong><br/>
+				{{comment.content}}
+			</p>
+		</div>
+	</div>
+
+	<a href="#/">Back</a>
+
+</div>
